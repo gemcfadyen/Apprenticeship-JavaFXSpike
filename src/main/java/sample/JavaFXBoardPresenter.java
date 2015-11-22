@@ -8,12 +8,12 @@ import javafx.scene.text.Text;
 
 public class JavaFXBoardPresenter implements BoardPresenter {
     private final GridPane grid;
-    private final HumanMoveTracker humanMoveTracker;
+    private final ActionTracker actionTracker;
     private GameController gameController;
 
-    public JavaFXBoardPresenter(GridPane grid, HumanMoveTracker humanMoveTracker, GameController gameController) {
+    public JavaFXBoardPresenter(GridPane grid, ActionTracker actionTracker, GameController gameController) {
         this.grid = grid;
-        this.humanMoveTracker = humanMoveTracker;
+        this.actionTracker = actionTracker;
         this.gameController = gameController;
     }
 
@@ -36,9 +36,9 @@ public class JavaFXBoardPresenter implements BoardPresenter {
         JavaFxGameStatusDisplay gameStatusTracker = new JavaFxGameStatusDisplay(gameOverTarget);
 
         //register the action that should happen when a button is clicked
-        humanMoveTracker.registerElementForClicking(buttonForCell1, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell1, gameStatusTracker));
-        humanMoveTracker.registerElementForClicking(buttonForCell2, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell2, gameStatusTracker));
-        humanMoveTracker.registerElementForClicking(buttonForCell3, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell3, gameStatusTracker));
+        actionTracker.registerElementForClicking(buttonForCell1, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell1, gameStatusTracker));
+        actionTracker.registerElementForClicking(buttonForCell2, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell2, gameStatusTracker));
+        actionTracker.registerElementForClicking(buttonForCell3, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell3, gameStatusTracker));
 
     }
 

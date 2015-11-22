@@ -23,7 +23,7 @@ public class Main extends Application {
 
         //Spike for TTT
         GameController gameController = new GameController(game);
-        HumanMoveTracker humanMoveTracker = new HumanMoveTracker();
+        ActionTracker actionTracker = new ActionTracker();
 
         //Prompt user to select game type - human vs human
         String gameType = gameController.getGameType();
@@ -32,8 +32,8 @@ public class Main extends Application {
         AnyClickableItem javaFxHumanVsHumanRadioButton = new JavaFxRadioBox(humanVsHumanRadioButton);
 
         //register the action that should happen when radio box is selected
-        humanMoveTracker.registerElementForClicking(javaFxHumanVsHumanRadioButton,
-                new UserSelectsGameTypeRadioButtonSelection(javaFxHumanVsHumanRadioButton, new JavaFXBoardPresenter(grid, humanMoveTracker, gameController)));
+        actionTracker.registerElementForClicking(javaFxHumanVsHumanRadioButton,
+                new UserSelectsGameTypeRadioButtonSelection(javaFxHumanVsHumanRadioButton, new JavaFXBoardPresenter(grid, actionTracker, gameController)));
         grid.add(humanVsHumanRadioButton, 0, 1);
 
         //draw the page

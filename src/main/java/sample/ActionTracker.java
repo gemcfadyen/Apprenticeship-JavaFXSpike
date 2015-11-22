@@ -1,6 +1,6 @@
 package sample;
 
-public class HumanMoveTracker implements RegisterAction {
+public class ActionTracker implements RegisterAction {
 
     @Override
     public void registerElementForClicking(AnyClickableItem clickableElement, AnyAction action) {

@@ -1,17 +1,16 @@
 package sample;
 
-public interface AnyButton {
 
+interface AnyClickableItem {
     void setClickAction(AnyAction clickAction);
+    void setText(String text);
+    String getId();
     void setAsDisabled();
-    void setButtonText(String text);
-    String getButtonId();
 }
 
 interface AnyAction {
     void actionEvent();
 }
-
 
 interface GameStatus {
     void setStatus(String status);

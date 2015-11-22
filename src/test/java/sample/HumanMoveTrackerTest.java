@@ -17,7 +17,7 @@ public class HumanMoveTrackerTest {
 //        Button fakeButton = new Button("1");
 //
 
-       // humanMoveTracker.registerButtonForClicking(fakeButton);
+       // humanMoveTracker.registerElementForClicking(fakeButton);
 
 //        Event.fireEvent(your node, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY, 1, true, true, true, true, true, true, true, true, true, true, null));
       //  Event mouseEvent = new MouseEvent(MouseEvent.MOUSE_CLICKED, 1, 1, 1, 1, MouseButton.PRIMARY, 1, false, false, false, false, true, false, false, false, false, false, null);

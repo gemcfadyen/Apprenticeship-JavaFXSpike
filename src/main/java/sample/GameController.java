@@ -27,4 +27,8 @@ public class GameController {
         game.updateAt(zeroBasedIndex, symbol);
         return symbol;
     }
+
+    public String getGameType() {
+        return "Human vs Human";
+    }
 }

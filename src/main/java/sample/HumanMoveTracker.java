@@ -1,8 +1,13 @@
 package sample;
 
-public class HumanMoveTracker {
+public class HumanMoveTracker implements RegisterAction {
 
-    public void registerButtonForClicking(AnyButton button, AnyAction action) {
-        button.setClickAction(action);
+    @Override
+    public void registerElementForClicking(AnyClickableItem clickableElement, AnyAction action) {
+        clickableElement.setClickAction(action);
     }
+}
+
+interface RegisterAction {
+    void registerElementForClicking(AnyClickableItem clickableElement, AnyAction action);
 }

@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class JavaFxButton implements AnyButton {
+public class JavaFxButton implements AnyClickableItem {
     private Button javaFxButton;
 
     public JavaFxButton(Button javaFxButton) {
@@ -27,12 +27,12 @@ public class JavaFxButton implements AnyButton {
     }
 
     @Override
-    public void setButtonText(String text) {
+    public void setText(String text) {
         javaFxButton.setText(text);
     }
 
     @Override
-    public String getButtonId() {
+    public String getId() {
         return javaFxButton.getId();
     }
 

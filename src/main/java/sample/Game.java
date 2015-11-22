@@ -24,6 +24,6 @@ public class Game {
         if(numberOfTurns == 3) {
             return "GAME OVER";
         }
-        return "Continue...";
+        return "Continue...Please select your next move";
     }
 }

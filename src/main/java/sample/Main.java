@@ -1,8 +1,6 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -32,12 +30,7 @@ public class Main extends Application {
         final Text actionTarget = new Text();
         actionTarget.setId("actionTargetId");
         grid.add(actionTarget, 1, 6);
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                actionTarget.setText("Button was pressed");
-            }
-        });
+        btn.setOnAction(event -> actionTarget.setText("Button was pressed"));
 
         /***********************************************/
         //Spike for TTT
@@ -49,16 +42,22 @@ public class Main extends Application {
         createHBoxForButton(grid, secondSquare, Pos.BOTTOM_CENTER, 3);
         createHBoxForButton(grid, thirdSquare, Pos.BOTTOM_RIGHT, 4);
 
-        final Text gameOverTarget = new Text();
+        Text gameOverTarget = new Text();
         gameOverTarget.setId("gameOverTargetId");
+
         grid.add(gameOverTarget, 1, 8);
 
-        HumanMoveTracker humanMoveTracker = new HumanMoveTracker(gameOverTarget, new GameController(game));
+        GameController gameController = new GameController(game);
+        HumanMoveTracker humanMoveTracker = new HumanMoveTracker();
 
-        humanMoveTracker.registerButtonForClicking(firstSquare);
-        humanMoveTracker.registerButtonForClicking(secondSquare);
-        humanMoveTracker.registerButtonForClicking(thirdSquare);
+        JavaFxButton buttonForCell1 = new JavaFxButton(firstSquare);
+        JavaFxButton buttonForCell2 = new JavaFxButton(secondSquare);
+        JavaFxButton buttonForCell3 = new JavaFxButton(thirdSquare);
 
+        JavaFxGameStatusDisplay gameStatusTracker = new JavaFxGameStatusDisplay(gameOverTarget);
+        humanMoveTracker.registerButtonForClicking(buttonForCell1, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell1, gameStatusTracker));
+        humanMoveTracker.registerButtonForClicking(buttonForCell2, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell2, gameStatusTracker));
+        humanMoveTracker.registerButtonForClicking(buttonForCell3, new UserClicksButtonToMakeMoveAction(gameController, buttonForCell3, gameStatusTracker));
 
         Scene scene = new Scene(grid, 700, 700);
         scene.getStylesheets().add(Main.class.getResource("presentation.css").toExternalForm());

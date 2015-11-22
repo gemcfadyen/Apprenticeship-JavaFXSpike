@@ -13,7 +13,6 @@ public class HumanMoveTrackerTest {
 
     @Test
     public void checksTextHasBeenSetWhenButtonClicked() {
-
         HumanMoveTracker humanMoveTracker = new HumanMoveTracker(new Text(), new GameController(new Game()));
         Button fakeButton = new Button("1");
 

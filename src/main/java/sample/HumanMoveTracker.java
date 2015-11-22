@@ -20,6 +20,10 @@ public class HumanMoveTracker {
     }
 
     public EventHandler<ActionEvent> mouseClickEventHandler(Button button) {
+        return onButtonClickEvent(button);
+    }
+
+    private EventHandler<ActionEvent> onButtonClickEvent(Button button) {
         return new EventHandler<ActionEvent>() {
             boolean isTaken = false;
 

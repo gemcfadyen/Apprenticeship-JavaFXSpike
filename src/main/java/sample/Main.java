@@ -39,6 +39,7 @@ public class Main extends Application {
             }
         });
 
+        /***********************************************/
         //Spike for TTT
         Button firstSquare = createButton("1", "Index 0");
         Button secondSquare = createButton("2", "Index 1");

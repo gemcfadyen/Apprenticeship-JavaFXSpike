@@ -32,7 +32,7 @@ public class JavaFXBoardPresenter implements BoardPresenter {
         //Display of game status
         Text gameOverTarget = new Text();
         gameOverTarget.setId("gameOverTargetId");
-        grid.add(gameOverTarget, 5, 8);
+        grid.add(gameOverTarget, 2, 8, 3, 1);
         JavaFxGameStatusDisplay gameStatusTracker = new JavaFxGameStatusDisplay(gameOverTarget);
 
         //register the action that should happen when a button is clicked
